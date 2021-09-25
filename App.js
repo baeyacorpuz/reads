@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 /**
  * Sample React Native App
  * https://github.com/facebook/react-native
@@ -8,9 +9,11 @@
 
 import { NavigationContainer } from '@react-navigation/native';
 import React from 'react';
-import { StyleSheet, useColorScheme } from 'react-native';
+import { StatusBar, StyleSheet, useColorScheme } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { Colors } from 'react-native/Libraries/NewAppScreen';
+import Nav from './src/components/Nav/Nav';
 import AuthenticatedStack from './src/screens/AUTHENTICATED_STACK/AUTH_STACK';
 
 const App = () => {
@@ -21,9 +24,12 @@ const App = () => {
   };
 
   return (
-    <NavigationContainer>
-      <AuthenticatedStack />
-    </NavigationContainer>
+    <>
+      <StatusBar barStyle="default" />
+      <SafeAreaView style={{ flex: 1 }}>
+        <Nav />
+      </SafeAreaView>
+    </>
   );
 };
 

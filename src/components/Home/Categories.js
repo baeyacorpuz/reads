@@ -1,20 +1,35 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import {
+  SafeAreaView,
+  ScrollView,
+  StatusBar,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native';
 
 const Categories = () => {
-  return <View style={styles.container} />;
+  return (
+    <SafeAreaView style={styles.container}>
+      <ScrollView style={styles.scrollView}>
+        <View style={styles.section} />
+      </ScrollView>
+    </SafeAreaView>
+  );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'space-between',
-    backgroundColor: '#fff',
+    paddingTop: StatusBar.currentHeight,
+  },
+  scrollView: {
+    marginHorizontal: 20,
   },
   section: {
-    flex: 0.3,
-    alignContent: 'center',
-    justifyContent: 'center',
+    flex: 1,
+    flexDirection: 'row',
+    flexWrap: 'wrap',
   },
 });
 

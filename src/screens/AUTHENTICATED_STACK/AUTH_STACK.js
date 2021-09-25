@@ -1,9 +1,12 @@
 /* eslint-disable react-native/no-inline-styles */
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import Home from '../../components/Home/Home';
 import Categories from '../../components/Home/Categories';
+import Search from '../../components/Home/Search';
+import Drawer from '../../components/Home/Drawer';
 
 const Tab = createBottomTabNavigator();
 
@@ -14,9 +17,9 @@ const AuthenticatedStack = () => {
         tabBarActiveTintColor: '#e91e63',
         tabBarStyle: {
           position: 'absolute',
-          marginBottom: 10,
+          paddingBottom: 10,
           elevation: 0,
-          borderTopWidth: 0,
+          height: 70,
         },
       }}>
       <Tab.Screen
@@ -24,6 +27,9 @@ const AuthenticatedStack = () => {
         component={Home}
         options={{
           headerShown: false,
+          tabBarIcon: ({ color, size }) => (
+            <MaterialCommunityIcons name="home" color={color} size={size} />
+          ),
         }}
       />
       <Tab.Screen
@@ -31,14 +37,37 @@ const AuthenticatedStack = () => {
         component={Categories}
         options={{
           headerShown: false,
+          tabBarIcon: ({ color, size }) => (
+            <MaterialCommunityIcons
+              name="book-open-page-variant"
+              color={color}
+              size={size}
+            />
+          ),
         }}
       />
-      <Tab.Screen name="Search" component={Home} />
       <Tab.Screen
-        name="More"
-        component={Home}
+        name="Search"
+        component={Search}
         options={{
           headerShown: false,
+          tabBarIcon: ({ color, size }) => (
+            <MaterialCommunityIcons
+              name="book-search"
+              color={color}
+              size={size}
+            />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="More"
+        component={Drawer}
+        options={{
+          headerShown: false,
+          tabBarIcon: ({ color, size }) => (
+            <MaterialCommunityIcons name="menu" color={color} size={size} />
+          ),
         }}
       />
     </Tab.Navigator>
