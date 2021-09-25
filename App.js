@@ -18,6 +18,7 @@ import {
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 import Headers from './src/components/Header';
 import Sections from './src/components/Sections';
+import Signup from './src/screens/UNAUTHENTICATED_STACK/Signup';
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -32,8 +33,9 @@ const App = () => {
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}>
-        <Headers />
-        <Sections />
+        {/* <Headers />
+        <Sections /> */}
+        <Signup />
       </ScrollView>
     </SafeAreaView>
   );
