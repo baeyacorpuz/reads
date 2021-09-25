@@ -14,7 +14,7 @@ const AuthenticatedStack = () => {
   return (
     <Tab.Navigator
       screenOptions={{
-        tabBarActiveTintColor: '#e91e63',
+        tabBarActiveTintColor: '#216d5f',
         tabBarStyle: {
           position: 'absolute',
           paddingBottom: 10,
@@ -62,7 +62,7 @@ const AuthenticatedStack = () => {
       />
       <Tab.Screen
         name="More"
-        component={Drawer}
+        component={Home}
         options={{
           headerShown: false,
           tabBarIcon: ({ color, size }) => (
