@@ -6,19 +6,12 @@
  * @flow strict-local
  */
 
+import { NavigationContainer } from '@react-navigation/native';
 import React from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  useColorScheme,
-} from 'react-native';
+import { StyleSheet, useColorScheme } from 'react-native';
 
 import { Colors } from 'react-native/Libraries/NewAppScreen';
-import Headers from './src/components/Header';
-import Sections from './src/components/Sections';
-import Signup from './src/screens/UNAUTHENTICATED_STACK/Signup';
+import AuthenticatedStack from './src/screens/AUTHENTICATED_STACK/AUTH_STACK';
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -28,16 +21,9 @@ const App = () => {
   };
 
   return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        {/* <Headers />
-        <Sections /> */}
-        <Signup />
-      </ScrollView>
-    </SafeAreaView>
+    <NavigationContainer>
+      <AuthenticatedStack />
+    </NavigationContainer>
   );
 };
 

@@ -8,9 +8,7 @@ const Signup = () => {
         <View>
           <Text>READS</Text>
         </View>
-        <View>
-
-        </View>
+        <View />
       </View>
     </View>
   );
@@ -21,8 +19,8 @@ const styles = StyleSheet.create({
     flex: 1,
     display: 'flex',
     flexDirection: 'column',
-    justifyContent: "flex-end",
-    alignItems: "center"
+    justifyContent: 'flex-end',
+    alignItems: 'center',
   },
   container: {
     height: 400,
