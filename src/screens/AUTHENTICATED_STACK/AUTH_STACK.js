@@ -6,6 +6,7 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import Home from './Home/Home';
 import Categories from './Home/Categories';
 import Search from './Home/Search';
+import Profile from './Profile/Profile';
 
 const Tab = createBottomTabNavigator();
 
@@ -61,7 +62,7 @@ const AuthenticatedStack = () => {
       />
       <Tab.Screen
         name="More"
-        component={Home}
+        component={Profile}
         options={{
           headerShown: false,
           tabBarIcon: ({ color, size }) => (

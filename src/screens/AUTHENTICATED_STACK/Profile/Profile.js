@@ -1,13 +1,21 @@
 import React from 'react';
+
 import { SafeAreaView, ScrollView, StyleSheet, View } from 'react-native';
 import HeaderBar from '../../../components/Header';
 
-const Home = () => {
+const Profile = () => {
   return (
-    <SafeAreaView style={styles.container}>
-      <ScrollView style={styles.scrollView}>
-        <HeaderBar title="Hi, Yoona Lim" subtitle="Welcome to Reads" />
-        <View style={styles.content} />
+    <SafeAreaView>
+      <ScrollView>
+        <HeaderBar title="Bea Aira Lee S. Corpuz" subtitle="Software Developer" />
+        <View
+          style={{
+            backgroundColor: 'black',
+            height: 2,
+            flex: 1,
+            alignSelf: 'center',
+          }}
+        />
       </ScrollView>
     </SafeAreaView>
   );
@@ -54,4 +62,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Home;
+export default Profile;
