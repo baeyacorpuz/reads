@@ -1,43 +1,37 @@
 import React from 'react';
-import { ImageBackground, StyleSheet, Text, View } from 'react-native';
-import BookCover from '../assets/images/whiten.jpg';
+import { StyleSheet, Text, View } from 'react-native';
 
-const Header = () => {
+const HeaderBar = () => {
   return (
     <View style={styles.sectionContainer}>
-      <ImageBackground
-        source={BookCover}
-        resizeMode="cover"
-        style={styles.imageContainer}
-      />
+      <View style={styles.header}>
+        <Text style={styles.headerTitle}>Hi, Yoona Lim</Text>
+        <Text style={styles.subTitle}>Welcome to Reads</Text>
+      </View>
+      <View style={styles.content} />
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  sectionContainer: {
-    height: 250,
+  container: {
     flex: 1,
+    justifyContent: 'space-between',
+    backgroundColor: '#fff',
   },
-  imageContainer: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    flex: 1,
-    width: '100%',
+  header: {
+    paddingHorizontal: 20,
+    backgroundColor: '#14463e',
+    paddingVertical: 20,
   },
-  sectionTitle: {
-    fontSize: 32,
-    fontWeight: '700',
+  headerTitle: {
+    fontSize: 24,
+    color: '#fff',
   },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
+  subTitle: {
+    fontSize: 14,
+    color: '#fff',
   },
 });
 
-export default Header;
+export default HeaderBar;

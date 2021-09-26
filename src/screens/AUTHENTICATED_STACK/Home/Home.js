@@ -1,24 +1,12 @@
-/* eslint-disable react-native/no-inline-styles */
 import React from 'react';
-import {
-  Image,
-  SafeAreaView,
-  ScrollView,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
-
-import Logo from '../../assets/images/whiten.jpg';
+import { SafeAreaView, ScrollView, StyleSheet, View } from 'react-native';
+import HeaderBar from '../../../components/Header';
 
 const Home = () => {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView style={styles.scrollView}>
-        <View style={styles.header}>
-          <Text style={styles.headerTitle}>Hi, Yoona Lim</Text>
-          <Text style={styles.subTitle}>Welcome to Reads</Text>
-        </View>
+        <HeaderBar />
         <View style={styles.content} />
       </ScrollView>
     </SafeAreaView>

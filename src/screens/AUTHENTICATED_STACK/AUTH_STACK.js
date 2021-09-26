@@ -3,10 +3,9 @@ import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
-import Home from '../../components/Home/Home';
-import Categories from '../../components/Home/Categories';
-import Search from '../../components/Home/Search';
-import Drawer from '../../components/Home/Drawer';
+import Home from './Home/Home';
+import Categories from './Home/Categories';
+import Search from './Home/Search';
 
 const Tab = createBottomTabNavigator();
 
