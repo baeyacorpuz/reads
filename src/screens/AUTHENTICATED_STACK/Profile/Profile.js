@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 import React from 'react';
 
 import { SafeAreaView, ScrollView, StyleSheet, View } from 'react-native';
@@ -5,9 +6,12 @@ import HeaderBar from '../../../components/Header';
 
 const Profile = () => {
   return (
-    <SafeAreaView>
-      <ScrollView>
-        <HeaderBar title="Bea Aira Lee S. Corpuz" subtitle="Software Developer" />
+    <SafeAreaView style={styles.container}>
+      <ScrollView style={styles.scrollView}>
+        <HeaderBar
+          title="Bea Aira Lee S. Corpuz"
+          subtitle="Software Developer"
+        />
         <View
           style={{
             backgroundColor: 'black',

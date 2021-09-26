@@ -1,5 +1,14 @@
+/* eslint-disable react-native/no-inline-styles */
 import React from 'react';
-import { SafeAreaView, ScrollView, StyleSheet, View } from 'react-native';
+import {
+  Button,
+  SafeAreaView,
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native';
+import { Card } from 'react-native-elements';
 import HeaderBar from '../../../components/Header';
 
 const Home = () => {
@@ -7,7 +16,44 @@ const Home = () => {
     <SafeAreaView style={styles.container}>
       <ScrollView style={styles.scrollView}>
         <HeaderBar title="Hi, Yoona Lim" subtitle="Welcome to Reads" />
-        <View style={styles.content} />
+        <View style={styles.content}>
+          <Card
+            style={{
+              flex: 0.5,
+            }}>
+            <Card.Title>Hello world</Card.Title>
+            <Card.Divider />
+            <Text>
+              Donec elementum sem vitae augue ultricies viverra. Pellentesque
+              orci elit, gravida eget diam id, finibus viverra magna. Nulla ac
+              metus suscipit, volutpat quam non, pellentesque odio.
+            </Text>
+          </Card>
+          <Card
+            style={{
+              flex: 1,
+            }}>
+            <Card.Title>Hello world</Card.Title>
+            <Card.Divider />
+            <Text>
+              Donec elementum sem vitae augue ultricies viverra. Pellentesque
+              orci elit, gravida eget diam id, finibus viverra magna. Nulla ac
+              metus suscipit, volutpat quam non, pellentesque odio.
+            </Text>
+          </Card>
+          <Card
+            style={{
+              flex: 1,
+            }}>
+            <Card.Title>Hello world</Card.Title>
+            <Card.Divider />
+            <Text>
+              Donec elementum sem vitae augue ultricies viverra. Pellentesque
+              orci elit, gravida eget diam id, finibus viverra magna. Nulla ac
+              metus suscipit, volutpat quam non, pellentesque odio.
+            </Text>
+          </Card>
+        </View>
       </ScrollView>
     </SafeAreaView>
   );
@@ -18,15 +64,14 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'space-between',
     backgroundColor: '#fff',
+    paddingBottom: 80,
   },
   content: {
     paddingHorizontal: 20,
     paddingVertical: 20,
-    flex: 1,
-    flexDirection: 'row',
-    flexWrap: 'wrap',
   },
-  scrollView: {},
+  scrollView: {
+  },
   section: {
     alignContent: 'center',
     justifyContent: 'center',
@@ -51,6 +96,13 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     padding: 10,
     width: '100%',
+  },
+  buttonStyle: {
+    backgroundColor: '#d120de',
+    borderRadius: 0,
+    marginLeft: 0,
+    marginRight: 0,
+    marginBottom: 0,
   },
 });
 
