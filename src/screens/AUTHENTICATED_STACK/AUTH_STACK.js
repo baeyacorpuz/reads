@@ -1,14 +1,33 @@
 /* eslint-disable react-native/no-inline-styles */
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createStackNavigator } from '@react-navigation/stack';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import Home from './Home/Home';
 import Categories from './Home/Categories';
 import Search from './Home/Search';
 import Profile from './Profile/Profile';
+import Settings from './Profile/Settings';
 
 const Tab = createBottomTabNavigator();
+
+const ProfileNavigator = createStackNavigator();
+
+const ProfileNav = () => {
+  return (
+    <ProfileNavigator.Navigator>
+      <ProfileNavigator.Screen
+        name="Profile"
+        component={Profile}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <ProfileNavigator.Screen name="Settings" component={Settings} />
+    </ProfileNavigator.Navigator>
+  );
+};
 
 const AuthenticatedStack = () => {
   return (
@@ -62,7 +81,7 @@ const AuthenticatedStack = () => {
       />
       <Tab.Screen
         name="More"
-        component={Profile}
+        component={ProfileNav}
         options={{
           headerShown: false,
           tabBarIcon: ({ color, size }) => (

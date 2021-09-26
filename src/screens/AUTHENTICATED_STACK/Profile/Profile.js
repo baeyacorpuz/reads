@@ -1,7 +1,9 @@
 /* eslint-disable react-native/no-inline-styles */
 import React from 'react';
-
 import { SafeAreaView, ScrollView, StyleSheet, View } from 'react-native';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+
 import HeaderBar from '../../../components/Header';
 
 const Profile = () => {
@@ -15,11 +17,25 @@ const Profile = () => {
         <View
           style={{
             backgroundColor: 'black',
-            height: 2,
             flex: 1,
             alignSelf: 'center',
           }}
         />
+        <View
+          style={{
+            flex: 1,
+            paddingHorizontal: 20,
+            paddingVertical: 20,
+            flexWrap: 'wrap',
+          }}>
+          <View
+            style={{
+              flexDirection: 'row',
+              flexWrap: 'wrap',
+              backgroundColor: '#d3d3d3',
+            }}
+          />
+        </View>
       </ScrollView>
     </SafeAreaView>
   );
@@ -31,23 +47,11 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     backgroundColor: '#fff',
   },
-  content: {
-    paddingHorizontal: 20,
-    paddingVertical: 20,
-    flex: 1,
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-  },
+  content: {},
   scrollView: {},
   section: {
     alignContent: 'center',
     justifyContent: 'center',
-  },
-  header: {
-    paddingHorizontal: 20,
-    backgroundColor: '#14463e',
-    paddingVertical: 20,
-    // height: 150,
   },
   headerTitle: {
     fontSize: 24,
@@ -56,13 +60,6 @@ const styles = StyleSheet.create({
   subTitle: {
     fontSize: 14,
     color: '#fff',
-  },
-  input: {
-    height: 40,
-    margin: 12,
-    borderWidth: 1,
-    padding: 10,
-    width: '100%',
   },
 });
 
