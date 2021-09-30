@@ -6,12 +6,14 @@ import {
   ScrollView,
   StyleSheet,
   Text,
+  TouchableOpacity,
   View,
 } from 'react-native';
 import { Card } from 'react-native-elements';
 import HeaderBar from '../../../components/Header';
 
 import Cover from '../../../assets/images/cover.jpg';
+import Feature from '../../../components/Feature/Feature';
 
 const Home = () => {
   return (
@@ -21,20 +23,7 @@ const Home = () => {
           title="Hi, Yoona Lim"
           subtitle="Whick book suits your current mood?"
         />
-        <View
-          style={{
-            marginTop: -60,
-            width: '90%',
-            alignSelf: 'center',
-            borderRadius: 10,
-            backgroundColor: '#fff',
-            height: 200,
-          }}>
-          <Image
-            source={Cover}
-            style={{ height: 200, width: '100%', borderRadius: 10 }}
-          />
-        </View>
+        <Feature />
         <View style={styles.content}>
           <Card
             style={{
