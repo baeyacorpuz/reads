@@ -9,6 +9,7 @@ import Categories from './Home/Categories';
 import Search from './Home/Search';
 import Profile from './Profile/Profile';
 import Settings from './Profile/Settings';
+import BookDetails from './Book/BookDetails';
 
 const Tab = createBottomTabNavigator();
 
@@ -36,6 +37,13 @@ const HomeNav = () => {
       <HomeNavigator.Screen
         name="Home"
         component={Home}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <HomeNavigator.Screen
+        name="BookDetails"
+        component={BookDetails}
         options={{
           headerShown: false,
         }}

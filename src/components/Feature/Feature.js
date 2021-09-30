@@ -1,12 +1,23 @@
 import React from 'react';
-import { Image, StyleSheet, TouchableOpacity, View } from 'react-native';
+import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
-import Cover from '../../assets/images/cover.jpg';
-const Feature = () => {
+const Feature = ({ handlePress, featuredBook }) => {
   return (
     <View style={styles.container}>
-      <TouchableOpacity>
-        <Image source={Cover} style={styles.image} />
+      <TouchableOpacity onPress={handlePress}>
+        <View style={styles.wrapper}>
+          <Image
+            source={{
+              uri: featuredBook.cover,
+            }}
+            style={styles.image}
+          />
+          <View style={styles.textContainer}>
+            <Text style={styles.title}>{featuredBook.title}</Text>
+            <Text style={styles.author}>{featuredBook.subTitle}</Text>
+            <Text style={styles.author}>{featuredBook.author[0]}</Text>
+          </View>
+        </View>
       </TouchableOpacity>
     </View>
   );
@@ -19,9 +30,37 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     borderRadius: 10,
     backgroundColor: '#fff',
-    height: 200,
+    height: 120,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+    },
+    shadowOpacity: 0.18,
+    shadowRadius: 1.0,
+    elevation: 1,
   },
-  image: { height: 200, width: '100%', borderRadius: 10 },
+  wrapper: {
+    padding: 10,
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+  },
+  textContainer: {
+    paddingLeft: 16,
+    flexGrow: 1,
+    flex: 1,
+  },
+  title: {
+    fontSize: 22,
+    flex: 1,
+    flexWrap: 'wrap',
+  },
+  author: {
+    fontSize: 12,
+    flex: 1,
+    flexWrap: 'wrap',
+  },
+  image: { height: 100, width: 100, borderRadius: 10 },
 });
 
 export default Feature;

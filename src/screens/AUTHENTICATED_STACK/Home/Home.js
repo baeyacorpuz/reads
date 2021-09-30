@@ -13,8 +13,20 @@ import { Card } from 'react-native-elements';
 import HeaderBar from '../../../components/Header';
 
 import Feature from '../../../components/Feature/Feature';
+import { featuredBook } from '../../../utils/variables';
 
-const Home = () => {
+const Home = ({ navigation }) => {
+  const handlePress = () => {
+    navigation.navigate('BookDetails', {
+      params: {
+        featuredBook: featuredBook,
+        cover: featuredBook.cover,
+      },
+      featuredBook: featuredBook,
+      cover: featuredBook.cover,
+    });
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView style={styles.scrollView}>
@@ -22,7 +34,7 @@ const Home = () => {
           title="Hi, Yoona Lim"
           subtitle="Whick book suits your current mood?"
         />
-        <Feature />
+        <Feature handlePress={handlePress} featuredBook={featuredBook} />
         <View style={styles.content}>
           <Card
             style={{
