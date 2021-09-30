@@ -1,14 +1,33 @@
 /* eslint-disable react-native/no-inline-styles */
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import { createStackNavigator } from '@react-navigation/stack';
+import Feather from 'react-native-vector-icons/Feather';
 
 import Home from './Home/Home';
 import Categories from './Home/Categories';
 import Search from './Home/Search';
 import Profile from './Profile/Profile';
+import Settings from './Profile/Settings';
 
 const Tab = createBottomTabNavigator();
+
+const ProfileNavigator = createStackNavigator();
+
+const ProfileNav = () => {
+  return (
+    <ProfileNavigator.Navigator>
+      <ProfileNavigator.Screen
+        name="Profile"
+        component={Profile}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <ProfileNavigator.Screen name="Settings" component={Settings} />
+    </ProfileNavigator.Navigator>
+  );
+};
 
 const AuthenticatedStack = () => {
   return (
@@ -28,7 +47,7 @@ const AuthenticatedStack = () => {
         options={{
           headerShown: false,
           tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons name="home" color={color} size={size} />
+            <Feather name="home" color={color} size={size} />
           ),
         }}
       />
@@ -38,11 +57,7 @@ const AuthenticatedStack = () => {
         options={{
           headerShown: false,
           tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons
-              name="book-open-page-variant"
-              color={color}
-              size={size}
-            />
+            <Feather name="book-open" color={color} size={size} />
           ),
         }}
       />
@@ -52,21 +67,17 @@ const AuthenticatedStack = () => {
         options={{
           headerShown: false,
           tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons
-              name="book-search"
-              color={color}
-              size={size}
-            />
+            <Feather name="search" color={color} size={size} />
           ),
         }}
       />
       <Tab.Screen
         name="More"
-        component={Profile}
+        component={ProfileNav}
         options={{
           headerShown: false,
           tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons name="menu" color={color} size={size} />
+            <Feather name="menu" color={color} size={size} />
           ),
         }}
       />
