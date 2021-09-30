@@ -26,10 +26,8 @@ const styles = StyleSheet.create({
     height: 200,
     justifyContent: 'flex-start',
     alignItems: 'center',
-    // margin: 10,
-    // borderRadius: 15,
-    borderBottomLeftRadius: 15,
-    borderBottomRightRadius: 15,
+    borderBottomLeftRadius: 20,
+    borderBottomRightRadius: 20,
   },
   headerTitle: {
     fontSize: 24,

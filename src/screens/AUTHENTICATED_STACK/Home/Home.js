@@ -6,13 +6,12 @@ import {
   ScrollView,
   StyleSheet,
   Text,
-  TouchableOpacity,
+  Platform,
   View,
 } from 'react-native';
 import { Card } from 'react-native-elements';
 import HeaderBar from '../../../components/Header';
 
-import Cover from '../../../assets/images/cover.jpg';
 import Feature from '../../../components/Feature/Feature';
 
 const Home = () => {
@@ -85,6 +84,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     backgroundColor: '#fff',
     paddingBottom: 80,
+    marginBottom: Platform.OS === 'ios' ? 70 : 0,
   },
   content: {
     paddingHorizontal: 10,

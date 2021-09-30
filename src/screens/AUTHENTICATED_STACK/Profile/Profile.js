@@ -51,8 +51,10 @@ const Profile = () => {
             </View>
           </View>
         </View>
-        <View>
-          <View />
+        <View  style={styles.section}>
+          <View>
+            <Text>Others</Text>
+          </View>
         </View>
       </ScrollView>
     </SafeAreaView>
@@ -83,8 +85,9 @@ const styles = StyleSheet.create({
   },
   scrollView: {},
   section: {
-    alignContent: 'center',
-    justifyContent: 'center',
+    width: '90%',
+    paddingHorizontal: 20,
+    paddingVertical: 30,
   },
   headerTitle: {
     fontSize: 24,

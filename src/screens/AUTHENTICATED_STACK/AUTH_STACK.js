@@ -13,6 +13,7 @@ import Settings from './Profile/Settings';
 const Tab = createBottomTabNavigator();
 
 const ProfileNavigator = createStackNavigator();
+const HomeNavigator = createStackNavigator();
 
 const ProfileNav = () => {
   return (
@@ -29,6 +30,20 @@ const ProfileNav = () => {
   );
 };
 
+const HomeNav = () => {
+  return (
+    <HomeNavigator.Navigator>
+      <HomeNavigator.Screen
+        name="Home"
+        component={Home}
+        options={{
+          headerShown: false,
+        }}
+      />
+    </HomeNavigator.Navigator>
+  );
+};
+
 const AuthenticatedStack = () => {
   return (
     <Tab.Navigator
@@ -36,14 +51,13 @@ const AuthenticatedStack = () => {
         tabBarActiveTintColor: '#216d5f',
         tabBarStyle: {
           position: 'absolute',
-          paddingBottom: 10,
           elevation: 0,
           height: 70,
         },
       }}>
       <Tab.Screen
-        name="Home"
-        component={Home}
+        name="Dashboard"
+        component={HomeNav}
         options={{
           headerShown: false,
           tabBarIcon: ({ color, size }) => (
