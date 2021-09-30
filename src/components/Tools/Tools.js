@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import Feather from 'react-native-vector-icons/Feather';
@@ -10,25 +11,25 @@ const Tools = () => {
           <View style={styles.itemContainer}>
             <TouchableOpacity>
               <Feather name="plus" size={36} color="#9CBEB8" />
-              <Text>New</Text>
+              <Text style={{ textAlign: 'center' }}>New</Text>
             </TouchableOpacity>
           </View>
           <View style={styles.itemContainer}>
             <TouchableOpacity>
               <Feather name="columns" size={36} color="#9CBEB8" />
-              <Text>Reads</Text>
+              <Text style={{ textAlign: 'center' }}>Reads</Text>
             </TouchableOpacity>
           </View>
           <View style={styles.itemContainer}>
             <TouchableOpacity>
               <Feather name="message-square" size={36} color="#9CBEB8" />
-              <Text>Forum</Text>
+              <Text style={{ textAlign: 'center' }}>Forum</Text>
             </TouchableOpacity>
           </View>
           <View style={styles.itemContainer}>
             <TouchableOpacity>
               <Feather name="settings" size={36} color="#9CBEB8" />
-              <Text>Theme</Text>
+              <Text style={{ textAlign: 'center' }}>Theme</Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -59,7 +60,7 @@ const styles = StyleSheet.create({
   flexBox: {
     width: '100%',
     flexDirection: 'row',
-    justifyContent: 'flex-start',
+    justifyContent: 'center',
     flexWrap: 'wrap',
     marginVertical: 20,
   },

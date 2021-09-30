@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Platform, StyleSheet, Text, View } from 'react-native';
 
 const HeaderBar = ({ title, subtitle }) => {
   return (
@@ -26,8 +26,8 @@ const styles = StyleSheet.create({
     height: 200,
     justifyContent: 'flex-start',
     alignItems: 'center',
-    borderBottomLeftRadius: 20,
-    borderBottomRightRadius: 20,
+    borderBottomLeftRadius: 10,
+    borderBottomRightRadius: 10,
   },
   headerTitle: {
     fontSize: 24,
