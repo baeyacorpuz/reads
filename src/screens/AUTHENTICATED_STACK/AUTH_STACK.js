@@ -61,6 +61,7 @@ const AuthenticatedStack = () => {
           position: 'absolute',
           elevation: 0,
           height: 70,
+          paddingBottom: 10,
         },
       }}>
       <Tab.Screen
