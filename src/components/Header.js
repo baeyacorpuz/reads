@@ -23,6 +23,13 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     backgroundColor: '#14463e',
     paddingVertical: 20,
+    height: 200,
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    // margin: 10,
+    // borderRadius: 15,
+    borderBottomLeftRadius: 15,
+    borderBottomRightRadius: 15,
   },
   headerTitle: {
     fontSize: 24,

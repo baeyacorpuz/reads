@@ -2,7 +2,7 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import Feather from 'react-native-vector-icons/Feather';
 
 import Home from './Home/Home';
 import Categories from './Home/Categories';
@@ -47,7 +47,7 @@ const AuthenticatedStack = () => {
         options={{
           headerShown: false,
           tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons name="home" color={color} size={size} />
+            <Feather name="home" color={color} size={size} />
           ),
         }}
       />
@@ -57,11 +57,7 @@ const AuthenticatedStack = () => {
         options={{
           headerShown: false,
           tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons
-              name="book-open-page-variant"
-              color={color}
-              size={size}
-            />
+            <Feather name="book-open" color={color} size={size} />
           ),
         }}
       />
@@ -71,11 +67,7 @@ const AuthenticatedStack = () => {
         options={{
           headerShown: false,
           tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons
-              name="book-search"
-              color={color}
-              size={size}
-            />
+            <Feather name="search" color={color} size={size} />
           ),
         }}
       />
@@ -85,7 +77,7 @@ const AuthenticatedStack = () => {
         options={{
           headerShown: false,
           tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons name="menu" color={color} size={size} />
+            <Feather name="menu" color={color} size={size} />
           ),
         }}
       />
