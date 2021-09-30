@@ -110,7 +110,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     backgroundColor: '#14463e',
     paddingVertical: 20,
-    // height: 150,
   },
   headerTitle: {
     fontSize: 24,

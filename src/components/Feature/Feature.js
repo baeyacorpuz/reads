@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     borderRadius: 10,
     backgroundColor: '#fff',
-    height: 120,
+    height: 160,
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
     flex: 1,
     flexWrap: 'wrap',
   },
-  image: { height: 100, width: 100, borderRadius: 10 },
+  image: { height: 140, width: 100, borderRadius: 10 },
 });
 
 export default Feature;

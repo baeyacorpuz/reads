@@ -11,25 +11,25 @@ const Tools = () => {
           <View style={styles.itemContainer}>
             <TouchableOpacity>
               <Feather name="plus" size={36} color="#9CBEB8" />
-              <Text style={{ textAlign: 'center' }}>New</Text>
+              <Text style={styles.textStyle}>New</Text>
             </TouchableOpacity>
           </View>
           <View style={styles.itemContainer}>
             <TouchableOpacity>
               <Feather name="columns" size={36} color="#9CBEB8" />
-              <Text style={{ textAlign: 'center' }}>Reads</Text>
+              <Text style={styles.textStyle}>Reads</Text>
             </TouchableOpacity>
           </View>
           <View style={styles.itemContainer}>
             <TouchableOpacity>
               <Feather name="message-square" size={36} color="#9CBEB8" />
-              <Text style={{ textAlign: 'center' }}>Forum</Text>
+              <Text style={styles.textStyle}>Forum</Text>
             </TouchableOpacity>
           </View>
           <View style={styles.itemContainer}>
             <TouchableOpacity>
               <Feather name="settings" size={36} color="#9CBEB8" />
-              <Text style={{ textAlign: 'center' }}>Theme</Text>
+              <Text style={styles.textStyle}>Theme</Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -70,6 +70,12 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignContent: 'center',
     alignItems: 'center',
+  },
+  textStyle: {
+    textAlign: 'center',
+    fontSize: 12,
+    justifyContent: 'center',
+    alignSelf: 'center',
   },
 });
 
