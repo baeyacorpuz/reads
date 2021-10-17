@@ -3,6 +3,8 @@ import { createStackNavigator } from '@react-navigation/stack';
 import Signup from './Signup';
 import Password from './Signup/Password';
 import Name from './Signup/Name';
+import Age from './Signup/Age';
+import Success from './Signup/Success';
 
 const SignupNavigator = createStackNavigator();
 
@@ -26,6 +28,20 @@ const UnauthenticatedStack = () => {
       <SignupNavigator.Screen
         name="Name"
         component={Name}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <SignupNavigator.Screen
+        name="Age"
+        component={Age}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <SignupNavigator.Screen
+        name="Success"
+        component={Success}
         options={{
           headerShown: false,
         }}

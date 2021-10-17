@@ -13,7 +13,7 @@ const SwitchStack = () => {
         options={{
           headerShown: false,
         }}
-        name="Signup"
+        name="Unauthenticated"
         component={UnauthenticatedStack}
       />
       <Switch.Screen

@@ -3,14 +3,14 @@ import { TouchableOpacity } from 'react-native';
 import { TextInput } from 'react-native';
 import { View, Platform, StyleSheet, Text } from 'react-native';
 
-const Name = ({ navigation }) => {
+const Age = ({ navigation }) => {
   const handleContinue = () => {
-    navigation.navigate('Age');
+    navigation.navigate('Success');
   };
   return (
     <View style={styles.container}>
       <View style={styles.content}>
-        <Text style={styles.label}>What's your name?</Text>
+        <Text style={styles.label}>How old are you?</Text>
         <TextInput
           style={styles.textField}
           textContentType="password"
@@ -70,4 +70,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Name;
+export default Age;
