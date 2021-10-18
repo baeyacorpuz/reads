@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'space-between',
     backgroundColor: '#fff',
-    marginBottom: Platform.OS === 'ios' ? 70 : 0,
+    marginBottom: 0,
   },
   content: {
     paddingHorizontal: 16,

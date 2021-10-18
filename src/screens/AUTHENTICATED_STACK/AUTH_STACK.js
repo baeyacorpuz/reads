@@ -11,6 +11,8 @@ import Profile from './Profile/Profile';
 import Settings from './Profile/Settings';
 import BookDetails from './Book/BookDetails';
 
+Feather.loadFont();
+
 const Tab = createBottomTabNavigator();
 
 const ProfileNavigator = createStackNavigator();
