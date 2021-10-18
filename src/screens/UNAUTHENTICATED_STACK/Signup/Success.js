@@ -1,12 +1,18 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-const Success = () => {
+const Success = ({ navigation }) => {
+  const handleExplore = () => {
+    navigation.navigate('Authenticated', {
+      screen: 'Dashboard',
+    });
+  };
+
   return (
     <View style={styles.root}>
       <View style={styles.container}>
         <Text style={styles.title}>Success!</Text>
-        <Text>Explore now</Text>
+        <Text onPress={handleExplore}>Explore now</Text>
       </View>
     </View>
   );
