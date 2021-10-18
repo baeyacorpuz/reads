@@ -5,6 +5,7 @@ import Password from './Signup/Password';
 import Name from './Signup/Name';
 import Age from './Signup/Age';
 import Success from './Signup/Success';
+import Login from './Signup/Login';
 
 const SignupNavigator = createStackNavigator();
 
@@ -14,6 +15,13 @@ const UnauthenticatedStack = () => {
       <SignupNavigator.Screen
         name="Sign up"
         component={Signup}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <SignupNavigator.Screen
+        name="Login"
+        component={Login}
         options={{
           headerShown: false,
         }}

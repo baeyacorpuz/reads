@@ -17,3 +17,5 @@ export const featuredBook = {
   isbn: '9781119716945',
   topic: 'Business',
 };
+
+export const userExisting = false;

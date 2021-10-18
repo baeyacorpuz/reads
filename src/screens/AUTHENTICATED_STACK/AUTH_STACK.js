@@ -57,6 +57,7 @@ const HomeNav = () => {
 const AuthenticatedStack = () => {
   return (
     <Tab.Navigator
+      initialRouteName="Dashboard"
       screenOptions={{
         tabBarActiveTintColor: '#216d5f',
         tabBarStyle: {

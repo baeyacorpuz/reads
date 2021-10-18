@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { TouchableOpacity } from 'react-native';
 import { TextInput } from 'react-native';
-import { View, Platform, StyleSheet, Text } from 'react-native';
+import { View, StyleSheet, Text } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Formik } from 'formik';
 
