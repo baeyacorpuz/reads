@@ -2,30 +2,40 @@ import React from 'react';
 import { TouchableOpacity } from 'react-native';
 import { TextInput } from 'react-native';
 import { View, Platform, StyleSheet, Text } from 'react-native';
+import { Formik } from 'formik';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const Name = ({ navigation }) => {
-  const handleContinue = () => {
+  const handleContinue = async values => {
+    try {
+      await AsyncStorage.setItem('name', values.name);
+    } catch (err) {
+      console.log('name error');
+    }
     navigation.navigate('Age');
   };
   return (
-    <View style={styles.container}>
-      <View style={styles.content}>
-        <Text style={styles.label}>What's your name?</Text>
-        <TextInput
-          style={styles.textField}
-          textContentType="password"
-          autoCapitalize="none"
-          keyboardType="visible-password"
-        />
-      </View>
-      <View style={styles.content}>
-        <TouchableOpacity style={styles.continueButton}>
-          <Text style={styles.buttonText} onPress={handleContinue}>
-            Next
-          </Text>
-        </TouchableOpacity>
-      </View>
-    </View>
+    <Formik initialValues={{ name: '' }} onSubmit={handleContinue}>
+      {({ handleChange, handleBlur, handleSubmit, values }) => (
+        <View style={styles.container}>
+          <View style={styles.content}>
+            <Text style={styles.label}>What's your name?</Text>
+            <TextInput
+              onChangeText={handleChange('name')}
+              onBlur={handleBlur('name')}
+              style={styles.textField}
+            />
+          </View>
+          <View style={styles.content}>
+            <TouchableOpacity
+              style={styles.continueButton}
+              onPress={handleSubmit}>
+              <Text style={styles.buttonText}>Next</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      )}
+    </Formik>
   );
 };
 

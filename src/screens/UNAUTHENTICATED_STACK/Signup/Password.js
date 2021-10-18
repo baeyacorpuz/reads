@@ -1,32 +1,52 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { TouchableOpacity } from 'react-native';
 import { TextInput } from 'react-native';
 import { View, Platform, StyleSheet, Text } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { Formik } from 'formik';
 
 const Password = ({ navigation }) => {
-  const handleContinue = () => {
+  const handleContinue = async values => {
+    try {
+      await AsyncStorage.setItem('password', values.password);
+    } catch (err) {
+      console.log('password error');
+    }
     navigation.navigate('Name');
   };
 
+  const loadInitialData = async () => {
+    await AsyncStorage.getItem('email');
+  };
+
+  useEffect(() => {
+    loadInitialData();
+  });
+
   return (
-    <View style={styles.container}>
-      <View style={styles.content}>
-        <Text style={styles.label}>Create a password</Text>
-        <TextInput
-          style={styles.textField}
-          textContentType="password"
-          autoCapitalize="none"
-          keyboardType="visible-password"
-        />
-      </View>
-      <View style={styles.content}>
-        <TouchableOpacity
-          style={styles.continueButton}
-          onPress={handleContinue}>
-          <Text style={styles.buttonText}>Next</Text>
-        </TouchableOpacity>
-      </View>
-    </View>
+    <Formik initialValues={{ password: '' }} onSubmit={handleContinue}>
+      {({ handleChange, handleBlur, handleSubmit, values }) => (
+        <View style={styles.container}>
+          <View style={styles.content}>
+            <Text style={styles.label}>Create a password</Text>
+            <TextInput
+              onChangeText={handleChange('password')}
+              onBlur={handleBlur('password')}
+              style={styles.textField}
+              textContentType="password"
+              autoCapitalize="none"
+            />
+          </View>
+          <View style={styles.content}>
+            <TouchableOpacity
+              style={styles.continueButton}
+              onPress={handleSubmit}>
+              <Text style={styles.buttonText}>Next</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      )}
+    </Formik>
   );
 };
 

@@ -1,11 +1,19 @@
 import React from 'react';
 import { TextInput, TouchableOpacity } from 'react-native';
 import { ImageBackground, StyleSheet, Text, View } from 'react-native';
+import { Formik } from 'formik';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import signup from '../../assets/images/sign-up.png';
 
 const Signup = ({ navigation }) => {
-  const handleContinue = () => {
+  const handleContinue = async values => {
+    console.log(values);
+    try {
+      await AsyncStorage.setItem('email', values.email);
+    } catch (err) {
+      console.log('signup error');
+    }
     navigation.navigate('Password');
   };
 
@@ -14,20 +22,29 @@ const Signup = ({ navigation }) => {
       <ImageBackground source={signup} style={styles.image}>
         <View style={styles.container}>
           <Text style={styles.title}>Welcome to Reads</Text>
-          <View style={styles.textField}>
-            <TextInput
-              style={styles.textField}
-              autoCapitalize="none"
-              autoCompleteType="email"
-            />
-          </View>
-          <View style={styles.button}>
-            <TouchableOpacity
-              style={styles.continueButton}
-              onPress={handleContinue}>
-              <Text style={styles.buttonText}>Continue</Text>
-            </TouchableOpacity>
-          </View>
+          <Formik initialValues={{ email: '' }} onSubmit={handleContinue}>
+            {({ handleChange, handleBlur, handleSubmit, values }) => (
+              <View style={styles.form}>
+                <View style={styles.textField}>
+                  <TextInput
+                    onChangeText={handleChange('email')}
+                    onBlur={handleBlur('email')}
+                    value={values.email}
+                    style={styles.textField}
+                    autoCapitalize="none"
+                    autoCompleteType="email"
+                  />
+                </View>
+                <View style={styles.button}>
+                  <TouchableOpacity
+                    style={styles.continueButton}
+                    onPress={handleSubmit}>
+                    <Text style={styles.buttonText}>Continue</Text>
+                  </TouchableOpacity>
+                </View>
+              </View>
+            )}
+          </Formik>
           <View style={styles.button}>
             <TouchableOpacity style={styles.facebookButton}>
               <Text style={styles.buttonText}>Continue with Facebook</Text>
@@ -120,6 +137,9 @@ const styles = StyleSheet.create({
     padding: 10,
     height: 54,
     borderRadius: 50,
+  },
+  form: {
+    width: '100%',
   },
 });
 

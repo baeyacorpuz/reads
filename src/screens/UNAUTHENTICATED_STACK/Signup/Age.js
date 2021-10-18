@@ -1,31 +1,47 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { TouchableOpacity } from 'react-native';
 import { TextInput } from 'react-native';
 import { View, Platform, StyleSheet, Text } from 'react-native';
+import { Formik } from 'formik';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const Age = ({ navigation }) => {
+  const [name, setName] = useState('');
   const handleContinue = () => {
     navigation.navigate('Success');
   };
+
+  const loadInitialData = async () => {
+    const value = await AsyncStorage.getItem('name');
+    setName(value);
+  };
+
+  useEffect(() => {
+    loadInitialData();
+  });
+
   return (
-    <View style={styles.container}>
-      <View style={styles.content}>
-        <Text style={styles.label}>How old are you?</Text>
-        <TextInput
-          style={styles.textField}
-          textContentType="password"
-          autoCapitalize="none"
-          keyboardType="visible-password"
-        />
-      </View>
-      <View style={styles.content}>
-        <TouchableOpacity style={styles.continueButton}>
-          <Text style={styles.buttonText} onPress={handleContinue}>
-            Next
-          </Text>
-        </TouchableOpacity>
-      </View>
-    </View>
+    <Formik initialValues={{ age: '' }} onSubmit={handleContinue}>
+      {({ handleChange, handleBlur, handleSubmit, values }) => (
+        <View style={styles.container}>
+          <View style={styles.content}>
+            <Text style={styles.label}>Hi {name}, how old are you?</Text>
+            <TextInput
+              onChangeText={handleChange('age')}
+              onBlur={handleBlur('age')}
+              style={styles.textField}
+            />
+          </View>
+          <View style={styles.content}>
+            <TouchableOpacity
+              style={styles.continueButton}
+              onPress={handleSubmit}>
+              <Text style={styles.buttonText}>Finish</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      )}
+    </Formik>
   );
 };
 
