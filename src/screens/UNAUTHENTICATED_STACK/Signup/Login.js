@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 import React, { useEffect, useState } from 'react';
 import { StyleSheet, TextInput, TouchableOpacity } from 'react-native';
 import { Text, View } from 'react-native';
@@ -18,7 +19,8 @@ const Login = ({ navigation }) => {
         screen: 'Dashboard',
       });
     } else {
-      console.log('error');
+      console.log('error in login');
+      alert('Login error');
     }
   };
 

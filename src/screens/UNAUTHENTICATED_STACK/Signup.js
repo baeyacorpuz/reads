@@ -1,18 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { TextInput, TouchableOpacity } from 'react-native';
 import { ImageBackground, StyleSheet, Text, View } from 'react-native';
-import { Formik } from 'formik';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import signup from '../../assets/images/sign-up.png';
+import { authController } from '../../api/user';
 import { isExisting } from '../../utils/variables';
 
 const Signup = ({ navigation }) => {
-  const handleContinue = async values => {
-    try {
-      await AsyncStorage.setItem('email', values.email);
-    } catch (err) {
-      console.log('signup error');
+  const [email, setEmail] = useState('');
+  const handleContinue = async () => {
+    const user = await authController.findByEmail({
+      emailAddress: email,
+    });
+
+    if (user.status) {
+      await AsyncStorage.setItem('email', email);
+      await AsyncStorage.setItem('isExisting', 'true');
     }
 
     if (!isExisting) {
@@ -27,29 +31,27 @@ const Signup = ({ navigation }) => {
       <ImageBackground source={signup} style={styles.image}>
         <View style={styles.container}>
           <Text style={styles.title}>Welcome to Reads</Text>
-          <Formik initialValues={{ email: '' }} onSubmit={handleContinue}>
-            {({ handleChange, handleBlur, handleSubmit, values }) => (
-              <View style={styles.form}>
-                <View style={styles.textField}>
-                  <TextInput
-                    onChangeText={handleChange('email')}
-                    onBlur={handleBlur('email')}
-                    value={values.email}
-                    style={styles.textField}
-                    autoCapitalize="none"
-                    autoCompleteType="email"
-                  />
-                </View>
-                <View style={styles.button}>
-                  <TouchableOpacity
-                    style={styles.continueButton}
-                    onPress={handleSubmit}>
-                    <Text style={styles.buttonText}>Continue</Text>
-                  </TouchableOpacity>
-                </View>
-              </View>
-            )}
-          </Formik>
+          {/* <Formik initialValues={{ email: '' }} onSubmit={handleContinue}>
+            {({ handleChange, handleBlur, handleSubmit, values }) => ( */}
+          <View style={styles.form}>
+            <View style={styles.textField}>
+              <TextInput
+                style={styles.textField}
+                autoCapitalize="none"
+                value={email}
+                onChangeText={text => setEmail(text)}
+              />
+            </View>
+            <View style={styles.button}>
+              <TouchableOpacity
+                style={styles.continueButton}
+                onPress={handleContinue}>
+                <Text style={styles.buttonText}>Continue</Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+          {/* )}
+          </Formik> */}
           <View style={styles.button}>
             <TouchableOpacity style={styles.facebookButton}>
               <Text style={styles.buttonText}>Continue with Facebook</Text>

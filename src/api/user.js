@@ -8,8 +8,7 @@ export class authController {
       url: 'login',
       data: data,
     });
-
-    if (response.status) {
+    if (response.data.status) {
       await AsyncStorage.setItem(
         'userdata',
         JSON.stringify(response.data.user),
@@ -28,5 +27,15 @@ export class authController {
     });
 
     return response;
+  };
+
+  static findByEmail = async data => {
+    const response = await helper.unauthenticated({
+      method: 'POST',
+      url: 'find-by-email',
+      data: data,
+    });
+
+    return response.data;
   };
 }

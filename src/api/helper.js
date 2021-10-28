@@ -12,13 +12,19 @@ export class helper {
   */
 
   static unauthenticated = async ({ method, url, data }) => {
-    const response = await axios({
-      method: method,
-      url: BASE_URL + url,
-      data: data,
-    });
+    try {
+      const response = await axios({
+        method: method,
+        url: BASE_URL + url,
+        data: data,
+      });
 
-    return response;
+      return response;
+    } catch (err) {
+      return {
+        status: false,
+      };
+    }
   };
 
   static authenticated = async ({ method, url, data }) => {
@@ -28,7 +34,7 @@ export class helper {
       data: data,
       responseType: 'json',
       headers: {
-        Authorization: ``,
+        Authorization: '',
         token: `${token}`,
       },
     });

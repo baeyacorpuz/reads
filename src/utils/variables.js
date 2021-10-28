@@ -1,11 +1,9 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-export const ENV = 'dev';
+export const ENV = 'local';
 
 export const BASE_URL =
-  ENV === 'development'
-    ? 'http://localhost:5000'
-    : 'https://webapi-bae.herokuapp.com/';
+  ENV === 'dev' ? '192.168.100.45:5000/' : 'https://webapi-bae.herokuapp.com/';
 
 export const featuredBook = {
   title: 'People Strategy',
@@ -20,6 +18,6 @@ export const featuredBook = {
   topic: 'Business',
 };
 
-export const isExisting = true;
+export const isExisting = AsyncStorage.getItem('isExisting');
 export const token = AsyncStorage.getItem('token');
 export const userdata = AsyncStorage.getItem('userdata');
