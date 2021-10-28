@@ -1,9 +1,11 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-export const ENV = 'local';
+export const ENV = 'dev';
 
 export const BASE_URL =
-  ENV === 'dev' ? '192.168.100.45:5000/' : 'https://webapi-bae.herokuapp.com/';
+  ENV === 'local'
+    ? '192.168.100.45:5000/'
+    : 'https://webapi-bae.herokuapp.com/';
 
 export const featuredBook = {
   title: 'People Strategy',
