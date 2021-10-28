@@ -1,4 +1,6 @@
-export const ENV = 'local';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
+export const ENV = 'dev';
 
 export const BASE_URL =
   ENV === 'development'
@@ -18,4 +20,6 @@ export const featuredBook = {
   topic: 'Business',
 };
 
-export const userExisting = false;
+export const isExisting = true;
+export const token = AsyncStorage.getItem('token');
+export const userdata = AsyncStorage.getItem('userdata');

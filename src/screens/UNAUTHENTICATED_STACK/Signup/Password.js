@@ -33,8 +33,8 @@ const Password = ({ navigation }) => {
               onChangeText={handleChange('password')}
               onBlur={handleBlur('password')}
               style={styles.textField}
-              textContentType="password"
               autoCapitalize="none"
+              secureTextEntry
             />
           </View>
           <View style={styles.content}>

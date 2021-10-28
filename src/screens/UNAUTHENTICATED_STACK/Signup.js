@@ -5,21 +5,20 @@ import { Formik } from 'formik';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import signup from '../../assets/images/sign-up.png';
-import { userExisting } from '../../utils/variables';
+import { isExisting } from '../../utils/variables';
 
 const Signup = ({ navigation }) => {
   const handleContinue = async values => {
-    console.log(values, 'sign up');
     try {
       await AsyncStorage.setItem('email', values.email);
     } catch (err) {
       console.log('signup error');
     }
 
-    if (userExisting) {
-      navigation.navigate('Login');
-    } else {
+    if (!isExisting) {
       navigation.navigate('Password');
+    } else {
+      navigation.navigate('Login');
     }
   };
 

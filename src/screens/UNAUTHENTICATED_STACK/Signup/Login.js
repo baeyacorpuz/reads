@@ -1,16 +1,25 @@
 import React, { useEffect, useState } from 'react';
-import { Formik } from 'formik';
 import { StyleSheet, TextInput, TouchableOpacity } from 'react-native';
 import { Text, View } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { authController } from '../../../api/user';
 
 const Login = ({ navigation }) => {
-  const [email, setEmail] = useState('');
-  const handleLogin = values => {
-    console.log(values, 'login');
-    navigation.navigate('Authenticated', {
-      screen: 'Dashboard',
+  const [emailAddress, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleLogin = async () => {
+    const user = await authController.login({
+      emailAddress: emailAddress,
+      password: password,
     });
+    if (user.token) {
+      navigation.navigate('Authenticated', {
+        screen: 'Dashboard',
+      });
+    } else {
+      console.log('error');
+    }
   };
 
   const loadInitialData = async () => {
@@ -23,8 +32,7 @@ const Login = ({ navigation }) => {
 
   useEffect(() => {
     loadInitialData();
-    console.log(email, 'login');
-  });
+  }, []);
 
   return (
     <View style={styles.container}>
@@ -42,42 +50,40 @@ const Login = ({ navigation }) => {
         <View style={styles.divider}>
           <Text>OR</Text>
         </View>
-        <Formik
+        {/* <Formik
           initialValues={{
-            email: email,
+            emailAddress: emailAddress,
+            password: password,
           }}
           onSubmit={handleLogin}>
-          {({ handleChange, handleBlur, handleSubmit, values }) => (
-            <View style={styles.form}>
-              <View style={styles.textField}>
-                <TextInput
-                  onChangeText={handleChange('email')}
-                  onBlur={handleBlur('email')}
-                  value={email}
-                  style={styles.textField}
-                  autoCapitalize="none"
-                  autoCompleteType="email"
-                  placeholder={email}
-                />
-              </View>
-              <View style={styles.textField}>
-                <TextInput
-                  onChangeText={handleChange('password')}
-                  onBlur={handleBlur('password')}
-                  style={styles.textField}
-                  placeholder="Enter your password"
-                />
-              </View>
-              <View style={styles.button}>
-                <TouchableOpacity
-                  style={styles.continueButton}
-                  onPress={handleSubmit}>
-                  <Text style={styles.buttonText}>Continue</Text>
-                </TouchableOpacity>
-              </View>
-            </View>
-          )}
-        </Formik>
+          {({ handleSubmit, values }) => ( */}
+        <View style={styles.form}>
+          <View style={styles.textField}>
+            <TextInput
+              style={styles.textField}
+              autoCapitalize="none"
+              value={emailAddress}
+              onChangeText={text => setEmail(text)}
+            />
+          </View>
+          <View style={styles.textField}>
+            <TextInput
+              style={styles.textField}
+              secureTextEntry
+              placeholder="Enter your password"
+              onChangeText={text => setPassword(text)}
+            />
+          </View>
+          <View style={styles.button}>
+            <TouchableOpacity
+              style={styles.continueButton}
+              onPress={handleLogin}>
+              <Text style={styles.buttonText}>Continue</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+        {/* )}
+        </Formik> */}
       </View>
     </View>
   );
