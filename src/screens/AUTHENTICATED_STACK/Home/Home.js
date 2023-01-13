@@ -1,21 +1,31 @@
 /* eslint-disable react-native/no-inline-styles */
 import React from 'react';
 import {
-  Image,
   SafeAreaView,
   ScrollView,
   StyleSheet,
   Text,
-  TouchableOpacity,
+  Platform,
   View,
 } from 'react-native';
 import { Card } from 'react-native-elements';
 import HeaderBar from '../../../components/Header';
 
-import Cover from '../../../assets/images/cover.jpg';
 import Feature from '../../../components/Feature/Feature';
+import { featuredBook } from '../../../utils/variables';
 
-const Home = () => {
+const Home = ({ navigation }) => {
+  const handlePress = () => {
+    navigation.navigate('BookDetails', {
+      params: {
+        featuredBook: featuredBook,
+        cover: featuredBook.cover,
+      },
+      featuredBook: featuredBook,
+      cover: featuredBook.cover,
+    });
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView style={styles.scrollView}>
@@ -23,7 +33,7 @@ const Home = () => {
           title="Hi, Yoona Lim"
           subtitle="Whick book suits your current mood?"
         />
-        <Feature />
+        <Feature handlePress={handlePress} featuredBook={featuredBook} />
         <View style={styles.content}>
           <Card
             style={{
@@ -85,6 +95,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     backgroundColor: '#fff',
     paddingBottom: 80,
+    marginBottom: Platform.OS === 'ios' ? 70 : 0,
   },
   content: {
     paddingHorizontal: 10,
@@ -98,7 +109,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     backgroundColor: '#14463e',
     paddingVertical: 20,
-    // height: 150,
   },
   headerTitle: {
     fontSize: 24,

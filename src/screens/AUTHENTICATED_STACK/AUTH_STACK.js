@@ -9,10 +9,14 @@ import Categories from './Home/Categories';
 import Search from './Home/Search';
 import Profile from './Profile/Profile';
 import Settings from './Profile/Settings';
+import BookDetails from './Book/BookDetails';
+
+Feather.loadFont();
 
 const Tab = createBottomTabNavigator();
 
 const ProfileNavigator = createStackNavigator();
+const HomeNavigator = createStackNavigator();
 
 const ProfileNav = () => {
   return (
@@ -29,21 +33,43 @@ const ProfileNav = () => {
   );
 };
 
+const HomeNav = () => {
+  return (
+    <HomeNavigator.Navigator>
+      <HomeNavigator.Screen
+        name="Home"
+        component={Home}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <HomeNavigator.Screen
+        name="BookDetails"
+        component={BookDetails}
+        options={{
+          headerShown: false,
+        }}
+      />
+    </HomeNavigator.Navigator>
+  );
+};
+
 const AuthenticatedStack = () => {
   return (
     <Tab.Navigator
+      initialRouteName="Dashboard"
       screenOptions={{
         tabBarActiveTintColor: '#216d5f',
         tabBarStyle: {
           position: 'absolute',
-          paddingBottom: 10,
           elevation: 0,
           height: 70,
+          paddingBottom: 10,
         },
       }}>
       <Tab.Screen
-        name="Home"
-        component={Home}
+        name="Dashboard"
+        component={HomeNav}
         options={{
           headerShown: false,
           tabBarIcon: ({ color, size }) => (
